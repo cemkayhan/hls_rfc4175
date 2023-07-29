@@ -26,8 +26,13 @@ static void Packetize_Lines(
   ap_uint<32> Time_Stamp
 ){
   static ap_uint<16> Line_Cntr=0;
+#pragma HLS RESET variable=Line_Cntr
+
   static ap_uint<32> Sequence_Num=0;
+#pragma HLS RESET variable=Sequence_Num
+
   static ap_uint<1> M;
+#pragma HLS RESET variable=M
 
   if(Height-1==Line_Cntr)
     M=1;
